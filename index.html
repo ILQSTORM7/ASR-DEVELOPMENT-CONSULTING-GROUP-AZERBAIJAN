@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASR Development Consulting Group | Strateji Həllər</title>
+    
+    <!-- Google Fonts: Montserrat & Roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="ASR.png" type="image/x-icon">
+    
+    <!-- FontAwesome İkonları -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- RƏNG PALİTRASI & GLOBAL STİL --- */
+        :root {
+            --primary-blue: #0F172A;       /* Tünd Göy (Etibar) */
+            --secondary-blue: #1E293B;     /* Bir az açıq tünd göy */
+            --accent-gold: #C5A059;        /* Qızılı (Peşəkarlıq Vurğusu) */
+            --accent-orange: #D97706;      /* Narıncı (CTA üçün) */
+            --white: #FFFFFF;              /* Ağ (Təmizlik) */
+            --light-bg: #F8FAFC;           /* Açık boz fon */
+            --text-main: #334155;          /* Əsas mətn rəngi */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding { padding: 80px 0; }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-orange);
+            color: var(--white);
+            border: 2px solid var(--accent-orange);
+        }
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-orange);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .section-title h2 { font-size: 36px; margin-bottom: 10px; }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 0;
+        }
+
+        /* --- 1. ÜST MENYU (HEADER) --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo span { color: var(--accent-gold); }
+
+        .nav-menu {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--primary-blue);
+            font-size: 15px;
+            position: relative;
+        }
+        
+        /* Mega Menu Simulyasiyası */
+        .has-dropdown:hover .dropdown {
+            display: block;
+            top: 100%;
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 120%;
+            left: 0;
+            background: var(--white);
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 20px;
+            border-top: 3px solid var(--accent-gold);
+        }
+        .dropdown h4 {
+            font-size: 14px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            margin-top: 15px;
+            text-transform: uppercase;
+        }
+        .dropdown li { margin-bottom: 8px; font-size: 13px; }
+        .dropdown a { color: var(--text-main); }
+        .dropdown a:hover { color: var(--accent-gold); padding-left: 5px; }
+
+        /* --- 2. ANA SƏHİFƏ (HERO) --- */
+        .hero {
+            background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Etibar Paneli (Slider Placeholder) */
+        .trust-bar {
+            background-color: var(--light-bg);
+            padding: 40px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .partner-logo {
+            display: inline-block;
+            font-size: 24px;
+            color: #cbd5e1;
+            margin: 0 40px;
+            font-weight: 800;
+        }
+
+        /* Lead Magnet */
+        .lead-magnet {
+            background-color: var(--primary-blue);
+            margin-top: -60px;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--white);
+        }
+        .magnet-info h3 { color: var(--white); font-size: 24px; margin-bottom: 10px; }
+        .magnet-info p { color: #cbd5e1; margin-bottom: 20px; }
+        .magnet-form { display: flex; gap: 10px; flex: 1; max-width: 500px; }
+        .magnet-form input { flex: 1; padding: 12px; border-radius: 4px; border: none; outline: none; }
+        .download-btn {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 30px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Sayğaclar */
+        .stats-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .stat-item h3 {
+            font-size: 48px;
+            color: var(--accent-gold);
+            margin-bottom: 5px;
+        }
+        .stat-item p { font-weight: 600; text-transform: uppercase; font-size: 14px; }
+
+        /* --- 3. HAQQIMIZDA & SERTİFİKATLAR --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+        .about-history strong { color: var(--primary-blue); }
+        
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .cert-item {
+            border: 1px solid #eee;
+            padding: 10px;
+            text-align: center;
+            background: #fff;
+            transition: transform 0.3s;
+        }
+        .cert-item:hover { transform: scale(1.05); border-color: var(--accent-gold); }
+        .cert-img-placeholder {
+            height: 200px;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            color: #94a3b8;
+        }
+
+        /* --- 4. XİDMƏTLƏR (MEGA MENU DETALLARI) --- */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            padding: 40px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-icon {
+            font-size: 40px;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+        .service-list {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        .service-list li {
+            position: relative;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .service-list li::before {
+            content: '•';
+            color: var(--accent-gold);
+            position: absolute;
+            left: -15px;
+            font-size: 20px;
+            line-height: 1;
+        }
+        .special-note {
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--primary-blue);
+            font-weight: 500;
+            background: #f8fafc;
+            padding: 10px;
+            border-left: 3px solid var(--primary-blue);
+        }
+
+        /* --- 5. DAXİLİ MƏTBƏX (GALEREYA) --- */
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .gallery-tab {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+        .gallery-tab.active {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border-color: var(--primary-blue);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(15,23,42,0.9));
+            padding: 20px;
+            color: var(--white);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* --- 7. TƏCRÜBƏMİZ (KEYSLƏR) --- */
+        .case-study-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .case-content { padding: 40px; flex: 1; }
+        .case-badge {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .process-flow {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .flow-step {
+            background: var(--white);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid var(--primary-blue);
+            flex: 1;
+        }
+        .flow-step.success { border-color: var(--accent-gold); }
+
+        /* --- 5. BİLİK MƏRKƏZİ --- */
+        .resource-row {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e2e8f0;
+        }
+        .res-icon {
+            font-size: 40px;
+            color: #ef4444; /* PDF Red Color */
+            margin-right: 20px;
+            width: 60px;
+            text-align: center;
+        }
+        .res-info { flex: 1; }
+        .res-download {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* --- 8. FOOTER --- */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 80px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-col h4 { color: var(--white); margin-bottom: 25px; font-size: 18px; }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a { color: #94a3b8; font-size: 14px; }
+        .footer-links a:hover { color: var(--accent-gold); padding-left: 5px; }
+        
+        .expert-cta {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 6px;
+        }
+        .expert-cta h5 { color: var(--accent-gold); font-size: 16px; margin-bottom: 10px; }
+        .expert-cta a { color: var(--white); text-decoration: underline; font-size: 13px; }
+
+        .trust-badges-footer {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 18px;
+        }
+
+        /* Whatsapp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 2000;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .navbar { flex-direction: column; gap: 15px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; }
+            .hero-content h1 { font-size: 32px; }
+            .lead-magnet { flex-direction: column; text-align: center; }
+            .magnet-form { flex-direction: column; width: 100%; }
+            .about-grid, .footer-grid, .case-study-card { grid-template-columns: 1fr; flex-direction: column; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .process-flow { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ÜST MENYU -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-layer-group"></i> ASR<span>.Group</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">Haqqımızda</a></li>
+                
+                <li class="has-dropdown">
+                    <a href="#services" class="nav-link">Xidmətlər <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
+                    <!-- MEGA MENU -->
+                    <ul class="dropdown">
+                        <h4>Qida Təhlükəsizliyi</h4>
+                        <li><a href="#">ISO 22000, HACCP</a></li>
+                        <li><a href="#">BRCGS, IFS</a></li>
+                        <li><a href="#">Texnoloji Audit</a></li>
+                        
+                        <h4>Strateji İdarəetmə</h4>
+                        <li><a href="#">MQ Sistemləri</a></li>
+                        <li><a href="#">Strateji Planlaşdırma</a></li>
+                        <li><a href="#">HR Audit</a></li>
+
+                        <h4>İqtisadi-Hüquqi</h4>
+                        <li><a href="#">Qanunvericilik Ekspertizası (RIA)</a></li>
+                        <li><a href="#">Feasibility Analizləri</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#experience" class="nav-link">Təcrübəmiz</a></li>
+                <li><a href="#gallery" class="nav-link">Daxili Mətbəx</a></li>
+                <li><a href="#resources" class="nav-link">Bilik Mərkəzi</a></li>
+            </ul>
+
+            <a href="#audit" class="btn btn-primary">Pulsuz Diaqnostika</a>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Strateji Həllər,<br>Dayanıqlı İnkişaf.</h1>
+            <p>ASR Development Consulting Group ilə biznesinizi beynəlxalq standartlara qaldırın.<br>15 illik təcrübə, AQTA və ISO ekspertizi.</p>
+            <a href="#services" class="btn btn-primary" style="background:var(--accent-gold); color:var(--primary-blue);">Xidmətləri İncele</a>
+        </div>
+    </section>
+
+    <!-- ETİBAR PANELİ -->
+    <div class="trust-bar">
+        <div class="container" style="display:flex; justify-content:center; align-items:center;">
+            <span class="partner-logo"><i class="fa-brands fa-accusoft"></i> PARTNYOR 1</span>
+            <span class="partner-logo"><i class="fa-brands fa-google"></i> PARTNYOR 2</span>
+            <span class="partner-logo"><i class="fa-brands fa-amazon"></i> PARTNYOR 3</span>
+            <span class="partner-logo"><i class="fa-brands fa-microsoft"></i> PARTNYOR 4</span>
+            <span class="partner-logo"><i class="fa-brands fa-apple"></i> PARTNYOR 5</span>
+        </div>
+    </div>
+
+    <!-- LEAD MAGNET (Ana Səhifə Bölməsi) -->
+    <div class="container">
+        <div class="lead-magnet">
+            <div class="magnet-info">
+                <h3><i class="fa-solid fa-clipboard-check"></i> Müəssisəniz Beynəlxalq Auditə Hazırdırmı?</h3>
+                <p>AQTA və ISO standartlarına uyğunluq üçün hazırladığımız <strong>10 addımlıq ekspert Checklist-ini</strong> pulsuz yükləyin.</p>
+            </div>
+            <form class="magnet-form">
+                <input type="email" placeholder="Əlaqə üçün E-mail ünvanınızı daxil edin...">
+                <button type="submit" class="download-btn">PULSUZ YÜKLƏ</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SAYĞAÇLAR -->
+    <div class="container stats-section">
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>İllik Təcrübə (2009-2024)</p>
+        </div>
+        <div class="stat-item">
+            <h3>100+</h3>
+            <p>Beynəlxalq Layihə</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Təcrübəli Ekspert</p>
+        </div>
+    </div>
+
+    <!-- 3. HAQQIMIZDA VƏ SERTİFİKATLAR -->
+    <section id="about" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Rebrendinq və Tariximiz</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="about-history">
+                        <h3>2009-2019-cu illər:</h3>
+                        <p>Səmərəli idarəçilikdən islahatlara çevik reaksiyaya doğru.</p>
+                        <br>
+                        <p>Bizim yolumuz Azərbaycan iqtisadiyyatının inkişaf dövrü ilə üst-üstə düşüb. Son onillikdə biz sadəcə auditor deyil, strateji tərəfdaş olaraq müəssisələrin rəqabətədavamlılığını artırmışıq. 2019-cu ildə apardığımız yenidənqurma prosesindən sonra şirkət beynəlxalq ölçülərə daha da yaxınlaşıb.</p>
+                    </div>
+                    
+                    <h4 style="margin-top:30px; margin-bottom:15px;">Sertifikatlar və Təltiflər:</h4>
+                    <p style="font-size:14px; color:#666;">Baş Auditorlarımızın beynəlxalq sertifikatları və dövlət qurumlarından təşəkkürnamələr:</p>
+                    
+                    <div class="cert-gallery">
+                        <!-- Yer tutucular (Placeholder Images) -->
+                        <div class="cert-item">
+                            <div class="cert-img-placeholder"><i class="fa-solid fa-file-contract fa-2x"></i></div>
+                            <small>Lead Auditor (IRCA)</small>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-img-placeholder"><i class="fa-solid fa-medal fa-2x"></i></div>
+                            <small>Hökumət Fəxri Fərmanı</small>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-img-placeholder"><i class="fa-solid fa-shield-halved fa-2x"></i></div>
+                            <small>HACCP Sertifikatı</small>
+                        </div>
+                        <div class="cert-item">
+                            <div class="cert-img-placeholder"><i class="fa-solid fa-user-tie fa-2x"></i></div>
+                            <small>Strateji Planlaşdırma</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80" alt="ASR Office" style="border-radius:8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. XİDMƏTLƏR -->
+    <section id="services" class="section-padding" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Xidmətlərimiz</h2>
+                <p>Düzgün strategiya ilə sənayenizi gələcəyə hazırlayın</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Xidmət 1: Qida -->
+                <div class="service-card">
+                    <i class="fas fa-carrot service-icon"></i>
+                    <h3>Qida Təhlükəsizliyi</h3>
+                    <p>Müəssisələrinizin beynəlxalq bazalara çıxışına kömək edirik.</p>
+                    <ul class="service-list">
+                        <li>ISO 22000, HACCP sistemləri</li>
+                        <li>BRCGS, IFS auditləri</li>
+                        <li>Texnoloji Audit və Optimallaşdırma</li>
+                    </ul>
+                    <div class="special-note">
+                        <i class="fa-solid fa-bullseye"></i> AQTA təcrübəli mütəxəssislərin nəzarəti. Dar ixtisaslı texnoloq cəlbi.
+                    </div>
+                </div>
+
+                <!-- Xidmət 2: Strategiya -->
+                <div class="service-card">
+                    <i class="fas fa-chess-board service-icon"></i>
+                    <h3>Strateji İdarəetmə</h3>
+                    <p>Biznes proseslərinizin şəffaflığını və səmərəliliyini artırırıq.</p>
+                    <ul class="service-list">
+                        <li>Monitorinq və Qiymətləndirmə (MQ)</li>
+                        <li>Korporativ İdarəetmə Sisteminin qurulması</li>
+                        <li>HR Audit və Personali Seçimi</li>
+                    </ul>
+                </div>
+
+                <!-- Xidmət 3: Hüquq -->
+                <div class="service-card">
+                    <i class="fas fa-scale-balanced service-icon"></i>
+                    <h3>İqtisadi-Hüquqi</h3>
+                    <p>Qanunvericilik bazasında peşəkar analitik dəstək.</p>
+                    <ul class="service-list">
+                        <li>Qanunvericilik Ekspertizası (RIA)</li>
+                        <li>Linqvistik və hüquqi analiz</li>
+                        <li>Feasibility Analizləri (Tədqiqatlar)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. DAXİLİ MƏTBƏX (QALEREYA) -->
+    <section id="gallery" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Daxili Mətbəx (Media)</h2>
+                <p>Zavodlardan ofislərimizə – İşimizin canlı görüntüləri</p>
+            </div>
+
+            <div class="gallery-nav">
+                <button class="gallery-tab active">Real Audit</button>
+                <button class="gallery-tab">Real Təlim</button>
+                <button class="gallery-tab">Real Ofis</button>
+            </div>
+
+            <div class="gallery-grid">
+                <!-- Foto 1 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Audit">
+                    <div class="gallery-overlay">
+                        <h4>Qida Zavodunda Audit</h4>
+                        <p>Keyfiyyətə nəzarət prosesi</p>
+                    </div>
+                </div>
+                <!-- Foto 2 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Təlim">
+                    <div class="gallery-overlay">
+                        <h4>HACCP Təlimi</h4>
+                        <p>Stajçıların sertifikatlaşdırılması</p>
+                    </div>
+                </div>
+                <!-- Foto 3 -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ofis">
+                    <div class="gallery-overlay">
+                        <h4>Beynəlxalq Məsləhətləşmə</h4>
+                        <p>Komanda iclası</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TƏCRÜBƏMİZ (LAYİHƏ KİSLƏRİ) -->
+    <section id="experience" class="section-padding" style="background-color: var(--light-bg);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Uğurlu Layihələr (Cases)</h2>
+                <p>Bizneslərimizin uğurunun sübutu</p>
+            </div>
+
+            <div class="case-study-card">
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1605218427306-022ba8c6f60d?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Factory" style="height:100%; width:300px; object-fit:cover;">
+                </div>
+                <div class="case-content">
+                    <span class="case-badge">Sənaye / HoReCa</span>
+                    <h3>İtkilərin Azaldılması və ISO 22000 Sertifikatlaşdırılması</h3>
+                    <p>Böyük bir ət emalı müəssisəsində keyfiyyətə nəzarətin mövcud olmaması ciddi itkilərə səbəb olurdu.</p>
+                    
+                    <div class="process-flow">
+                        <div class="flow-step">
+                            <strong><i class="fa-solid fa-triangle-exclamation"></i> Problem</strong>
+                            <p style="font-size:13px;">Məhsul zayı 25% idi. Müştəri şikayətləri yüksək idi.</p>
+                        </div>
+                        <div class="flow-step">
+                            <strong><i class="fa-solid fa-wand-magic-sparkles"></i> Həll</strong>
+                            <p style="font-size:13px;">AQTA mütəxəssislərinin gətirilməsi və HACCP sisteminin qurulması.</p>
+                        </div>
+                        <div class="flow-step success">
+                            <strong><i class="fa-solid fa-chart-line"></i> Nəticə</strong>
+                            <p style="font-size:13px;">İtkilər 20% azaldıldı. 6 ay ərzində sertifikat alındı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="case-study-card">
+                 <div class="case-content">
+                    <span class="case-badge">Dövlət / Strateji</span>
+                    <h3>Qanun Layihəsinin Linqvistik Ekspertizas</h3>
+                    <p>Bir nazirlik üçün hazırlanan yeni qanun layihəsinin tərcümə və hüquqi uyğunluğunun yoxlanılması.</p>
+                    <div class="process-flow">
+                        <div class="flow-step">
+                            <strong>Tapşırıq</strong>
+                            <p style="font-size:13px;">Analoji beynəlxalq sənədlərlə müqayisə.</p>
+                        </div>
+                        <div class="flow-step success">
+                            <strong>Nəticə</strong>
+                            <p style="font-size:13px;">Təkmilləşdirilmiş tərcümə və qəbul edilmiş qanun layihəsi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="case-image">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&h=400&q=80" alt="Law" style="height:100%; width:300px; object-fit:cover;">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. BİLİK MƏRKƏZİ -->
+    <section id="resources" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Bilik Mərkəzi</h2>
+                <p>Köməyinizə lazım ola biləcək faydalı resurslar</p>
+            </div>
+
+            <div class="resource-row">
+                <div class="res-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="res-info">
+                    <h4>Yeni Qida Təhlükəsizliyi Qanunu Haqqında Bələdçi</h4>
+                    <small style="color:#666;">Sektor trendləri və dəyişikliklər barədə analiz.</small>
+                </div>
+                <a href="#" class="res-download">PDF Yüklə <i class="fa-solid fa-arrow-down"></i></a>
+            </div>
+
+            <div class="resource-row">
+                <div class="res-icon" style="color:#10b981;"><i class="fa-solid fa-file-excel"></i></div>
+                <div class="res-info">
+                    <h4>Müəssisə Daxili Audit Şablonu (Excel)</h4>
+                    <small style="color:#666;">Hazır formalar vasitəsilə daxili audit aparmaq üçün.</small>
+                </div>
+                <a href="#" class="res-download">XLSX Yüklə <i class="fa-solid fa-arrow-down"></i></a>
+            </div>
+
+             <div class="resource-row">
+                <div class="res-icon" style="color:#3b82f6;"><i class="fa-solid fa-newspaper"></i></div>
+                <div class="res-info">
+                    <h4>Ekspert Bloqu</h4>
+                    <small style="color:#666;">ISO 22000 və İdarəetmənin son trendləri.</small>
+                </div>
+                <a href="#" class="res-download">Oxu <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 20px; color: white;">
+                        ASR<span>.Group</span>
+                    </div>
+                    <p style="font-size: 14px; color: #94a3b8; margin-bottom: 20px;">
+                        Biznesinizin böyüməsi üçün strateji həllər təklif edirik. 15 ildən artıqdır ki, Azərbaycan və region ölkələrində etibarlı tərəfdaşdıq.
+                    </p>
+                    <div class="trust-badges-footer">
+                        <div class="badge-icon" title="ISO Partner"><i class="fa-solid fa-certificate"></i></div>
+                        <div class="badge-icon" title="HACCP"><i class="fa-solid fa-shield-virus"></i></div>
+                        <div class="badge-icon" title="AQTA Məsləhətçi"><i class="fa-solid fa-leaf"></i></div>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Xidmətlər</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Qida Təhlükəsizliyi</a></li>
+                        <li><a href="#">Strateji İdarəetmə</a></li>
+                        <li><a href="#">İqtisadi-Hüquqi</a></li>
+                        <li><a href="#">Təlimlər</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Bizimlə</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Haqqımızda</a></li>
+                        <li><a href="#">Karyera</a></li>
+                        <li><a href="#">Media (Galeriya)</a></li>
+                        <li><a href="#">Şərt və Qaydalar</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Əlaqə</h4>
+                    <ul class="footer-links">
+                        <li><i class="fa-brands fa-whatsapp" style="margin-right:10px;"></i> +994 50 000 00 00</li>
+                        <li><i class="fa-solid fa-phone" style="margin-right:10px;"></i> +994 12 400 00 00</li>
+                        <li><i class="fa-solid fa-envelope" style="margin-right:10px;"></i> info@asr.az</li>
+                        <li><i class="fa-solid fa-location-dot" style="margin-right:10px;"></i> Bakı şəhəri, Nərimanov rayonu</li>
+                    </ul>
+                    
+                    <div class="expert-cta" style="margin-top: 20px;">
+                        <h5>Ekspert olmaq istəyirsiniz?</h5>
+                        <p style="font-size: 12px; margin-bottom: 10px; color: #cbd5e1;">Bizim ekspert hovuzumuza qoşulun.</p>
+                        <a href="#">Anketi Doldur <i class="fa-solid fa-arrow-right-long"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 13px; color: #64748b;">
+                &copy; 2024 ASR Development Consulting Group. Bütün hüquqlar qorunur.
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/994500000000" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
