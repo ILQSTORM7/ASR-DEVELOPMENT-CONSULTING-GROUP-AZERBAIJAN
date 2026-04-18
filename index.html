@@ -968,7 +968,7 @@ h1,h2,h3{
 }
 
 .case-study-card:nth-child(2) .case-badge {
-    background: #052984 !important;
+    background: #051d5b !important;
     color: #ffffff !important;
 }
 
@@ -976,6 +976,27 @@ h1,h2,h3{
 
 .case-study-card:nth-child(1) p {
     color: #1e293b !important;
+}
+
+/* 2-ci case-study-card içində olan mətnləri mavi et */
+.case-study-card:nth-of-type(2) p {
+    color: #22D3EE !important;
+}
+
+/* Flow-step içindəki mətnlər də mavi olsun */
+.case-study-card:nth-of-type(2) .flow-step p {
+    color: #22D3EE !important;
+}
+
+/* Başlıqlar varsa onlar da mavi */
+.case-study-card:nth-of-type(2) h3,
+.case-study-card:nth-of-type(2) strong {
+    color: #22D3EE !important;
+}
+
+.case-study-card:nth-child(2) {
+    background: #ffffff !important;
+    color: #052984 !important;
 }
 
 
