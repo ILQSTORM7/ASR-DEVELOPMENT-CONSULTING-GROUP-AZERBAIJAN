@@ -373,7 +373,7 @@
 
         /* --- 7. TƏCRÜBƏMİZ (KEYSLƏR) --- */
         .case-study-card {
-            background: var(--light-bg);
+            background: var(--light-bg); 
             border-radius: 8px;
             overflow: hidden;
             display: flex;
@@ -999,7 +999,520 @@ h1,h2,h3{
     color: #052984 !important;
 }
 
+.logo img{
+    height:60px;
+    width:auto;
+    object-fit:contain;
+}
 
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:80px;
+}
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(10,15,30,0.85);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+
+.nav-menu{
+    display:flex;
+    gap:35px;
+    align-items:center;
+}
+
+.nav-link{
+    position:relative;
+    font-weight:600;
+    font-size:15px;
+    color:#E2E8F0;
+    padding:8px 0;
+    transition:0.3s;
+}
+
+.nav-link::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0%;
+    height:2px;
+    background:#22D3EE;
+    transition:0.3s;
+}
+
+.nav-link:hover{
+    color:#ffffff;
+}
+
+.nav-link:hover::after{
+    width:100%;
+}
+
+.dropdown{
+    background:#0F172A;
+    border-radius:15px;
+    padding:25px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.dropdown a{
+    color:#CBD5E1;
+    font-size:14px;
+}
+
+.dropdown a:hover{
+    color:#22D3EE;
+    padding-left:5px;
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,#22D3EE,#6366F1);
+    border:none;
+    border-radius:30px;
+    padding:12px 28px;
+    font-weight:600;
+    font-size:14px;
+    color:#fff;
+    transition:0.3s ease;
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(34,211,238,0.4);
+}
+
+.section-padding{
+    padding:100px 0;
+}
+
+.section-title h2{
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+.service-card,
+.case-study-card,
+.resource-row{
+    border-radius:20px;
+    transition:0.4s;
+}
+
+.service-card:hover,
+.case-study-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 25px 60px rgba(0,0,0,0.5);
+}
+
+:root{
+    --bg-main:#0B1120;
+    --bg-section:#111827;
+    --bg-card:rgba(30,58,138,0.25);
+    --primary:#052984;
+    --accent:#22D3EE;
+    --gold:#C5A059;
+    --text-main:#E2E8F0;
+    --text-muted:#94A3B8;
+}
+
+body{
+    background:var(--bg-main);
+    color:var(--text-main);
+    font-family:'Montserrat',sans-serif;
+}
+
+p, li, span, small{
+    color:var(--text-muted);
+}
+
+h1,h2,h3,h4,h5{
+    color:#ffffff;
+}
+
+#services,
+#experience,
+#resources,
+#gallery,
+#about{
+    background:var(--bg-section) !important;
+}
+
+.service-card,
+.case-study-card,
+.resource-row{
+    background:var(--bg-card);
+    border:1px solid rgba(34,211,238,0.25);
+    backdrop-filter:blur(12px);
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.service-card:hover,
+.case-study-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 50px rgba(0,0,0,0.6);
+}
+
+.service-card h3{
+    color:#ffffff;
+    margin-top:10px;
+}
+
+.service-card p,
+.service-card li{
+    color:var(--text-muted);
+}
+
+.case-study-card{
+    color:var(--text-main);
+}
+
+.case-study-card h3{
+    color:#ffffff;
+}
+
+.flow-step{
+    background:rgba(255,255,255,0.05);
+    border-left:3px solid var(--accent);
+}
+
+footer{
+    background:#020617;
+}
+
+footer p,
+footer li,
+footer a{
+    color:var(--text-muted);
+}
+
+.footer-links a:hover{
+    color:var(--accent);
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,var(--accent),var(--primary));
+    border:none;
+    border-radius:30px;
+    color:#fff;
+    font-weight:600;
+}
+
+.btn-primary:hover{
+    opacity:0.9;
+    transform:translateY(-3px);
+}
+
+:root{
+    overflow:hidden;
+    border-radius:15px;
+}
+
+.carousel-track{
+    display:flex;
+    width:calc(300px * 8);
+    animation:slide 20s linear infinite;
+}
+
+.slide{
+    min-width:300px;
+    height:200px;
+    margin-right:15px;
+}
+
+.slide img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+@keyframes slide{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+
+/* TEXT COLORS FIX */
+h1,h2,h3{color:white}
+p{color:var(--muted)}
+
+.section-title{
+    text-align:center;
+    margin:60px 0 20px;
+}
+
+.section-title h2{color:var(--gold)}
+
+/* CARDS */
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+#topBtn{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    width:50px;
+    height:50px;
+    border:none;
+    border-radius:50%;
+    background:#22D3EE;
+    color:#000;
+    font-size:22px;
+    cursor:pointer;
+    display:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+    z-index:9999;
+}
+
+#topBtn:hover{
+    transform:scale(1.1);
+}
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px){
+
+    /* NAVBAR */
+    .navbar{
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-menu{
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .logo img{
+        height: 45px;
+    }
+
+    /* HERO */
+    .hero{
+        height: auto;
+        padding: 60px 15px;
+    }
+
+    .hero h1{
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero p{
+        font-size: 14px;
+    }
+
+    /* BUTTON */
+    .btn{
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    /* CAROUSEL */
+    .group{
+        gap: 25px;
+    }
+
+    .group span{
+        font-size: 12px;
+    }
+
+    /* SECTION */
+    .section{
+        padding: 40px 15px;
+    }
+}
+
+.video-section{
+    position:relative;
+    height:80vh;
+    overflow:hidden;
+}
+
+.bg-video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.video-overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.video-overlay h1{
+    font-size:40px;
+    color:#C5A059;
+}
+
+.video-overlay p{
+    color:#E2E8F0;
+    margin-top:10px;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+.case-study-card p,
+.case-study-card strong,
+.case-study-card h3 {
+    color: #052984 !important; /* tünd mavi */
+}
+
+.flow-step {
+    background: rgba(255,255,255,0.05);
+    border-left: 3px solid rgb(255, 217, 0) !important;
+}
+
+.case-study-card:hover {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+    transform: translateY(-6px);
+}
+
+.case-study-card .process-flow .flow-step p{
+    color: #052984 !important;
+}
+
+p { color: var(--text-muted); }
+.case-study-card p { color: !important; }
+
+/* 1. Saytın qıraqlarındakı yanan neon xətlər */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border: 2px solid transparent;
+        border-image: linear-gradient(45deg, #052984, #22D3EE, #052984) 1;
+        z-index: 9999;
+        pointer-events: none;
+        animation: borderGlow 3s infinite alternate;
+    }
+
+    @keyframes borderGlow {
+        0% { opacity: 0.3; filter: drop-shadow(0 0 5px #22D3EE); }
+        100% { opacity: 1; filter: drop-shadow(0 0 15px #22D3EE); }
+    }
+
+    /* 2. Yeni Hero Dizaynı */
+    .pro-hero {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #020617; /* Qara fon */
+        overflow: hidden;
+    }
+
+    /* Arxa fondakı professional şəkil və hərəkətli işıq */
+    .hero-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop') no-repeat center center/cover;
+        opacity: 0.3;
+        filter: grayscale(50%);
+    }
+
+    /* Başlığın arxasındakı böyük parlaq dairə */
+    .hero-glow {
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+        animation: pulseGlow 4s infinite ease-in-out;
+    }
+
+    @keyframes pulseGlow {
+        0%, 100% { transform: scale(1); opacity: 0.5; }
+        50% { transform: scale(1.3); opacity: 0.8; }
+    }
+
+    .pro-content {
+        position: relative;
+        z-index: 10;
+        text-align: center;
+        max-width: 900px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 30px;
+    }
+
+    .pro-content h1 {
+        font-size: 64px !important;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 25px;
+        background: linear-gradient(90deg, #fff, #22D3EE, #fff);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textShine 4s linear infinite;
+    }
+
+    @keyframes textShine {
+        to { background-position: 200% center; }
+    }
+
+    .pro-content p {
+        font-size: 20px;
+        color: #CBD5E1 !important;
+        margin-bottom: 35px;
+        letter-spacing: 1px;
+    }
+
+    /* Pro Düymə */
+    .pro-btn {
+        padding: 15px 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #fff;
+        background: linear-gradient(45deg, #052984, #22D3EE);
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.4s;
+        box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+        text-transform: uppercase;
+    }
+
+    .pro-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 0 40px rgba(34, 211, 238, 0.7);
+    }
     </style>
 </head>
 <body>
@@ -1007,12 +1520,12 @@ h1,h2,h3{
     <!-- 1. ÜST MENYU -->
     <header>
         <div class="container navbar">
-            <a href="#" class="logo">
-                 <img src="asr.png" alt="" width="300"><span></span>
-            </a>
-            
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">Haqqımızda</a></li>
+           <a href="#" class="logo">
+         <img src="asr.png" width="300">
+         </a>
+         
+         <ul class="nav-menu">
+             <li><a href="#about" class="nav-link">Haqqımızda</a></li>
                 
                 <li class="has-dropdown">
                     <a href="#services" class="nav-link">Xidmətlər <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i></a>
@@ -1027,7 +1540,7 @@ h1,h2,h3{
                         <li><a href="#">MQ Sistemləri</a></li>
                         <li><a href="#">Strateji Planlaşdırma</a></li>
                         <li><a href="#">HR Audit</a></li>
-
+                        
                         <h4>İqtisadi-Hüquqi</h4>
                         <li><a href="#">Qanunvericilik Ekspertizası (RIA)</a></li>
                         <li><a href="#">Feasibility Analizləri</a></li>
@@ -1038,11 +1551,11 @@ h1,h2,h3{
                 <li><a href="#gallery" class="nav-link">Daxili Mətbəx</a></li>
                 <li><a href="#resources" class="nav-link">Bilik Mərkəzi</a></li>
             </ul>
-
+            
             <a href="#audit" class="btn btn-primary">Pulsuz Diaqnostika</a>
         </div>
     </header>
-
+    
     <!-- 2. HERO SECTION -->
     <section class="hero">
         <div class="container hero-content">
@@ -1051,36 +1564,36 @@ h1,h2,h3{
             <a href="#services" class="btn btn-primary" style="background:var(--accent-gold); color:var(--primary-blue);">Xidmətləri İncele</a>
         </div>
     </section>
-
+    
     <!-- ETİBAR PANELİ -->
     <div class="trust-bar">
         <div class="container" style="display:flex; justify-content:center; align-items:center;">
             <!-- 🔥 TOP REKLAM BAR -->
-<div class="promo-bar">
-    <div class="promo-track">
-        <div class="promo-group">
-            <span>🔵 AQTA</span>
-            <span>⚙ ISO 22000</span>
-            <span>📊 MQ Sistemləri</span>
-            <span>🛡 HACCP</span>
-            <span>🔵 BRCGS</span>
-        </div>
-
-        <!-- copy (sonsuz effekt üçün vacibdir) -->
-        <div class="promo-group">
-            <span>🔵 AQTA</span>
-            <span>⚙ ISO 22000</span>
-            <span>📊 MQ Sistemləri</span>
-            <span>🛡 HACCP</span>
-            <span>🔵 BRCGS</span>
+            <div class="promo-bar">
+                <div class="promo-track">
+                    <div class="promo-group">
+                        <span>🔵 AQTA</span>
+                        <span>⚙ ISO 22000</span>
+                        <span>📊 MQ Sistemləri</span>
+                        <span>🛡 HACCP</span>
+                        <span>🔵 BRCGS</span>
+                    </div>
+                    
+                    <!-- copy (sonsuz effekt üçün vacibdir) -->
+                    <div class="promo-group">
+                        <span>🔵 AQTA</span>
+                        <span>⚙ ISO 22000</span>
+                        <span>📊 MQ Sistemləri</span>
+                        <span>🛡 HACCP</span>
+                        <span>🔵 BRCGS</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-        </div>
-    </div>
 
-
-
+    
+    
     <!-- LEAD MAGNET (Ana Səhifə Bölməsi) -->
     <div class="container">
         <div class="lead-magnet">
@@ -1094,7 +1607,46 @@ h1,h2,h3{
             </form>
         </div>
     </div>
+    
 
+<button id="scrollTop" onclick="scrollToTop()">↑</button>
+<button id="scrollDown" onclick="scrollToBottom()">↓</button>
+<script>
+
+// scroll düymələri
+let topBtn = document.getElementById("scrollTop");
+let downBtn = document.getElementById("scrollDown");
+
+// scroll yoxla
+window.onscroll = function(){
+    if(document.documentElement.scrollTop > 300){
+        topBtn.style.display="block";
+        downBtn.style.display="block";
+    } else {
+        topBtn.style.display="none";
+        downBtn.style.display="none";
+    }
+};
+
+// yuxarı
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+// aşağı
+function scrollToBottom(){
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+}
+
+</script>
+    
+    
     <!-- SAYĞAÇLAR -->
     <div class="container stats-section">
         <div class="stat-item">
@@ -1218,12 +1770,6 @@ h1,h2,h3{
                 <p>Zavodlardan ofislərimizə – İşimizin canlı görüntüləri</p>
             </div>
 
-            <div class="gallery-nav">
-                <button class="gallery-tab active">Real Audit</button>
-                <button class="gallery-tab">Real Təlim</button>
-                <button class="gallery-tab">Real Ofis</button>
-            </div>
-
             <div class="gallery-grid">
                 <!-- Foto 1 -->
                 <div class="gallery-item">
@@ -1280,6 +1826,8 @@ h1,h2,h3{
                             <strong><i class="fa-solid fa-wand-magic-sparkles"></i> Həll</strong>
                             <p style="font-size:13px;">AQTA mütəxəssislərinin gətirilməsi və HACCP sisteminin qurulması.</p>
                         </div>
+
+                        
                         <div class="flow-step success">
                             <strong><i class="fa-solid fa-chart-line"></i> Nəticə</strong>
                             <p style="font-size:13px;">İtkilər 20% azaldıldı. 6 ay ərzində sertifikat alındı.</p>
@@ -1312,6 +1860,8 @@ h1,h2,h3{
         </div>
     </section>
 
+
+    
     <!-- 5. BİLİK MƏRKƏZİ -->
     <section id="resources" class="section-padding">
         <div class="container">
@@ -1350,71 +1900,65 @@ h1,h2,h3{
         
     </section>
 
-    <!-- 8. FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 20px; color: rgb(245, 245, 245);">
-                        ASR<span>.Group</span>
-                    </div>
-                    <p style="font-size: 14px; color: #f2f6fd; margin-bottom: 20px;">
-                        Biznesinizin böyüməsi üçün strateji həllər təklif edirik. 15 ildən artıqdır ki, Azərbaycan və region ölkələrində etibarlı tərəfdaşdıq.
-                    </p>
-                    <div class="trust-badges-footer">
-                        <div class="badge-icon" title="ISO Partner"><i class="fa-solid fa-certificate"></i></div>
-                        <div class="badge-icon" title="HACCP"><i class="fa-solid fa-shield-virus"></i></div>
-                        <div class="badge-icon" title="AQTA Məsləhətçi"><i class="fa-solid fa-leaf"></i></div>
-                    </div>
-                </div>                
-  
-                <div class="footer-col">
-                    <h4>Xidmətlər</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Qida Təhlükəsizliyi</a></li>
-                        <li><a href="#">Strateji İdarəetmə</a></li>
-                        <li><a href="#">İqtisadi-Hüquqi</a></li>
-                        <li><a href="#">Təlimlər</a></li>
-                    </ul>
-                </div>
+   <!-- CAROUSEL (BURASI SƏNİN İSTƏDİYİN YERDİR) -->
+<div class="section-title">
+    <h2>Şirkət Görüntüləri</h2>
+</div>
 
-                <div class="footer-col">
-                    <h4>Bizimlə</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Haqqımızda</a></li>
-                        <li><a href="#">Karyera</a></li>
-                        <li><a href="#">Media (Galeriya)</a></li>
-                        <li><a href="#">Şərt və Qaydalar</a></li>
-                    </ul>
-                </div>
+<div class="carousel">
+    <div class="carousel-track">
 
-                <div class="footer-col">
-                    <h4>Əlaqə</h4>
-                    <ul class="footer-links">
-                        <li><i class="fa-brands fa-whatsapp" style="margin-right:10px;"></i> +994 50 000 00 00</li>
-                        <li><i class="fa-solid fa-phone" style="margin-right:10px;"></i> +994 12 400 00 00</li>
-                        <li><i class="fa-solid fa-envelope" style="margin-right:10px;"></i> info@asr.az</li>
-                        <li><i class="fa-solid fa-location-dot" style="margin-right:10px;"></i> Bakı şəhəri, Nərimanov rayonu</li>
-                    </ul>
-                    
-                    <div class="expert-cta" style="margin-top: 20px;">
-                        <h5>Ekspert olmaq istəyirsiniz?</h5>
-                        <p style="font-size: 12px; margin-bottom: 10px; color: #f8f9fb;">Bizim ekspert hovuzumuza qoşulun.</p>
-                        <a href="#">Anketi Doldur <i class="fa-solid fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="border-top: 1px solid rgba(251, 244, 244, 0.938); padding-top: 20px; text-align: center; font-size: 13px; color: #64748b;">
-                &copy; 2024 ASR Development Consulting Group. Bütün hüquqlar qorunur.
-            </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1581091870622-1e7f6c1c2f4b">
         </div>
-    </footer>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/994500000000" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0">
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72">
+        </div>
+
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df">
+        </div>
+
+        
+    </div>
+</div>
+
+
+<button id="topBtn" onclick="scrollToTop()">
+    ↑
+</button>
+
+<script>
+let btn = document.getElementById("topBtn");
+
+window.onscroll = function() {
+    if (document.documentElement.scrollTop > 300) {
+        btn.style.display = "block";
+    } else {
+        btn.style.display = "none";
+    }
+};
+
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+
+</script>
+
 
 </body>
 </html>
